@@ -1,0 +1,40 @@
+---
+- hosts: web_portal
+  tasks:
+    - name: Apt get update
+      apt: update_cache=yes
+
+    - name: Install Apache2, nginx, nmap
+      apt: name={{ item }} update_cache=no
+      with_items:
+        - apache2
+        - nginx
+        - nmap
+
+    - name: Copy data files
+      copy: src=index.html dest=/var/www/html/
+
+    - name: Stop the service
+      service: name=apache2 state=stopped
+
+    - name: Copy template file
+      template: src=current.html.j2 dest=/var/www/html/current.html
+      notify:
+        - Start apache
+
+    - name: Testing conditional
+      shell: uptime
+      when: ansible_hostname == "node01"
+
+    - name : Testing untill
+      shell: service apache2 status
+      register: result
+      until: result.stdout.find("active (running)") != -1
+      retries: 5
+      delay: 5
+
+
+
+  handlers:
+    - name: Start apache
+      service: name=apache2 state=restarted
