@@ -1,4 +1,9 @@
 ---
+- name: install python mysql bindings
+  apt: name=python-mysqldb state=installed
+  become: yes
+  become_method: sudo
+  
 - name: Create mysql database
   mysql_db: name={{ wp_mysql_db }} state=present
 
