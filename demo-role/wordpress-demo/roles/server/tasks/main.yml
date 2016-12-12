@@ -11,7 +11,7 @@
     - apache2
     - mysql-server
     - php-mysql
-    - php5
-    - libapache2-mod-php5
+    - php
+    - libapache2-mod-php
     - php-mcrypt
     - python-mysqldb
