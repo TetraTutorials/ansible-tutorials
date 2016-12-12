@@ -1,15 +1,14 @@
 ---
 
+- name: Installing MySQL
+  hosts: db_hosts
+  roles:
+    - server
+    - mysql
+
 - name: Installing Wordpress
   hosts: web_hosts
   roles:
     - server
     - php
     - wordpress
-    
-
-- name: Installing MySQL
-  hosts: db_hosts
-  roles:
-    - server
-    - mysql
