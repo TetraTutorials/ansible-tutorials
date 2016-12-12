@@ -4,5 +4,5 @@
   apt: name={{ item }} state=present
   sudo: yes
   with_items:
-    - php5-gd
+    - php-gd
     - libssh2-php
