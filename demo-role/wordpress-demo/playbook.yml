@@ -6,8 +6,4 @@
     - server
     - php
     - wordpress
-
-- name: Installing MySQL DB
-  hosts: db_hosts
-  roles:
     - mysql
