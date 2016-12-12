@@ -1,5 +1,4 @@
----
-# tasks file for php
+
 ---
 - name: Install php extensions
   apt: name={{ item }} state=present

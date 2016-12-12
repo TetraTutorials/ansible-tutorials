@@ -1,5 +1,4 @@
----
-# tasks file for wordpress
+
 ---
 - name: Download WordPress  get_url:
     url=https://wordpress.org/latest.tar.gz
