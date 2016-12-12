@@ -5,4 +5,4 @@
   sudo: yes
   with_items:
     - php-gd
-    - libssh2-php
+    #- libssh2-php
