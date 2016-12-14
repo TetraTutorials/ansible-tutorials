@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Create AWS instances
+      ec2:
+        key_name: ansible
+        instance_type: t2.nano
+        image: ami-a1288ec2
+        count: 3
+        vpc_subnet_id: subnet-8f4d6eea
+        assign_public_ip: no
+        region: ap-southeast-1
